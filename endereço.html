@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>doc</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+       <!-- <link rel="stylesheet" href="estilo.css"> -->
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div class="caixa">
+    <div class="forum">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Logo Microsoft" class="logo">
+      <h2>Cadastro de Endereço</h2>
+
+      <form id="enderecoForm">
+        <label for="cep">CEP</label>
+        <input type="text" id="cep" placeholder="00000-000" maxlength="9" required>
+
+        <label for="logradouro">Logradouro</label>
+        <input type="text" id="logradouro" minlength="5" required>
+
+        <label for="numero">Número</label>
+        <input type="text" id="numero" required>
+
+        <label for="uf">UF</label>
+        <input type="text" id="uf" maxlength="2" required>
+
+        <label for="complemento">Complemento (opcional)</label>
+        <input type="text" id="complemento">
+
+        <button type="submit" class="btn">Cadastrar</button>
+      </form>
+    </div>
+  </div>
+
+        <script src="script.java" async defer></script>
+    </body>
+</html>

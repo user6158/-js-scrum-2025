@@ -1,0 +1,91 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #e8f0ff, #f5f8ff);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+}
+
+
+.caixa {
+  width: 100%;
+  max-width: 420px;
+  padding: 20px;
+}
+
+.forum {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 40px 30px;
+  text-align: left;
+}
+
+.logo {
+  width: 120px;
+  display: block;
+  margin: 0 auto 20px;
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 25px;
+  color: #1a1a1a;
+}
+
+label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus {
+  border-color: #0078d4;
+  box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.2);
+  outline: none;
+}
+
+/* Botão */
+.btn {
+  width: 100%;
+  background-color: #0078d4;
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.btn:hover {
+  background-color: #005a9e;
+}
+
+@media (max-width: 480px) {
+  .form-card {
+    padding: 25px 20px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+}
