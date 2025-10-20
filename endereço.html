@@ -1,48 +1,177 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>doc</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-       <!-- <link rel="stylesheet" href="estilo.css"> -->
-    </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Cadastro Completo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
 
-        <div class="caixa">
-    <div class="forum">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Logo Microsoft" class="logo">
-      <h2>Cadastro de Endereço</h2>
+    .caixa {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      width: 340px;
+    }
 
-      <form id="enderecoForm">
-        <label for="cep">CEP</label>
-        <input type="text" id="cep" placeholder="00000-000" maxlength="9" required>
+    .logo {
+      display: block;
+      width: 120px;
+      margin: 0 auto 10px;
+    }
 
-        <label for="logradouro">Logradouro</label>
-        <input type="text" id="logradouro" minlength="5" required>
+    h2 {
+      text-align: center;
+      color: #333;
+    }
 
-        <label for="numero">Número</label>
-        <input type="text" id="numero" required>
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
 
-        <label for="uf">UF</label>
-        <input type="text" id="uf" maxlength="2" required>
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
 
-        <label for="complemento">Complemento (opcional)</label>
-        <input type="text" id="complemento">
+    .btn {
+      margin-top: 15px;
+      width: 100%;
+      background-color: #0078d4;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
 
-        <button type="submit" class="btn">Cadastrar</button>
-      </form>
-    </div>
+    .btn:hover {
+      background-color: #005a9e;
+    }
+
+    .msg {
+      margin-top: 15px;
+      color: green;
+      text-align: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="caixa">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Logo Microsoft" class="logo">
+    <h2>Cadastro Completo</h2>
+
+    <form id="cadastroForm">
+      <label for="nome">Nome</label>
+      <input type="text" id="nome" minlength="3" required>
+
+      <label for="idade">Idade</label>
+      <input type="number" id="idade" min="1" max="120" required>
+
+      <label for="email">E-mail</label>
+      <input type="email" id="email" required>
+
+      <label for="senha">Senha</label>
+      <input type="password" id="senha" minlength="8" required>
+
+      <hr style="margin:15px 0;">
+
+      <label for="cep">CEP</label>
+      <input type="text" id="cep" placeholder="00000-000" maxlength="9" required>
+
+      <label for="logradouro">Logradouro</label>
+      <input type="text" id="logradouro" minlength="5" required>
+
+      <label for="numero">Número</label>
+      <input type="text" id="numero" required>
+
+      <label for="uf">UF</label>
+      <input type="text" id="uf" maxlength="2" required>
+
+      <label for="complemento">Complemento (opcional)</label>
+      <input type="text" id="complemento">
+
+      <button type="submit" class="btn">Cadastrar</button>
+    </form>
+
+    <div id="mensagem" class="msg"></div>
   </div>
 
-        <script src="script.java" async defer></script>
-    </body>
+  <script>
+    const form = document.getElementById("cadastroForm");
+    const msg = document.getElementById("mensagem");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const nome = form.nome.value.trim();
+      const idade = parseInt(form.idade.value);
+      const email = form.email.value.trim();
+      const senha = form.senha.value;
+      const cep = form.cep.value.trim();
+      const logradouro = form.logradouro.value.trim();
+      const numero = form.numero.value.trim();
+      const uf = form.uf.value.trim().toUpperCase();
+      const complemento = form.complemento.value.trim();
+
+    
+      if (!/^[A-Za-zÀ-ÿ ]{3,}$/.test(nome)) {
+        alert("Nome inválido! Use pelo menos 3 letras.");
+        return;
+      }
+
+      if (isNaN(idade) || idade < 1 || idade > 120) {
+        alert("Idade inválida! Digite um valor entre 1 e 120.");
+        return;
+      }
+
+      if (!/^[\\w._%+-]+@[\\w.-]+\\.[A-Za-z]{2,}$/.test(email)) {
+        alert("E-mail inválido!");
+        return;
+      }
+
+      if (senha.length < 8 || !/[A-Za-z]/.test(senha) || !/[0-9]/.test(senha)) {
+        alert("Senha fraca! Use pelo menos 8 caracteres, com letras e números.");
+        return;
+      }
+
+      if (!/^[0-9]{5}-?[0-9]{3}$/.test(cep)) {
+        alert("CEP inválido! Use o formato 00000-000.");
+        return;
+      }
+
+      if (!/^[A-Za-z]{2}$/.test(uf)) {
+        alert("UF inválida! Use apenas duas letras (ex: SP, RJ, MG).");
+        return;
+      }
+
+      msg.textContent = " Cadastro concluído com sucesso!";
+      console.log({
+        nome,
+        idade,
+        email,
+        senha,
+        endereco: { cep, logradouro, numero, uf, complemento }
+      });
+
+      form.reset();
+    });
+  </script>
+</body>
 </html>
