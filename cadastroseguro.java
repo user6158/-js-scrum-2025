@@ -9,7 +9,7 @@ public class CadastroSeguro {
         String email = lerEmail("Digite seu e-mail válido: ", sc);
         String senha = lerSenha("Crie uma senha (mínimo 8 caracteres, com letra e número): ", sc);
 
-        System.out.println("\n Cadastro concluído com sucesso!");
+        System.out.println("\nCadastro concluído com sucesso!");
         System.out.printf("Nome: %s%nIdade: %d%nE-mail: %s%n", nome, idade, email);
     }
 
